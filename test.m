@@ -7,7 +7,8 @@ hold on
 y = 0:10:90;
 x = power(r^2-y.^2,0.5);
 
-
+A = [98 80 60 30 10 0.8 0.5 0.3 0.1];
+B = [0.1 0.3 0.5 0.8 10 30 60 80 98] ;
 NH = find(yc>0);
 SH = find(yc<0);
 NHxc = xc(NH);
@@ -69,10 +70,11 @@ end
 end
 plot(xline,yline,'k','linewidth',2)
 plot(xline,-yline,'k','linewidth',2)
-
+NHr = A(n);
+SHr = B(n);
 [NHc,SHc] = colorselect(NHr,SHr);
-fill(NHxr,NHyr,'color',NHc)
-fill(SHxr,SHyr,'color',SHc)
+fill(NHxr,NHyr,NHc)
+fill(SHxr,SHyr,SHc)
 
 end
 hold off
