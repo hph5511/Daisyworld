@@ -383,10 +383,10 @@ image(handles.axes6,handles.logo)
 set(handles.axes6,'XTick',[])
 set(handles.axes6,'YTick',[])
 
-set(handles.axes1,'visible','off');cla(handles.axes1)
-set(handles.axes2,'visible','off');cla(handles.axes2)
-set(handles.axes3,'visible','off');cla(handles.axes3)
-set(handles.axes4,'visible','off');cla(handles.axes4)
+cla(handles.axes1,'reset');set(handles.axes1,'visible','off');
+cla(handles.axes2,'reset');set(handles.axes2,'visible','off');
+cla(handles.axes3,'reset');set(handles.axes3,'visible','off');
+cla(handles.axes4,'reset');set(handles.axes4,'visible','off');
 
 set(handles.edit1,'String','100');         set(handles.edit7,'String','0.3');   set(handles.edit39,'String','0.5');
 set(handles.edit2,'String','20');           set(handles.edit8,'String','0');   set(handles.edit40,'String','0.25');
