@@ -1,7 +1,7 @@
 clc;close all;clear;
 
 jd = 80;
-n = 7;
+n = 1;
 S0 = 6000;
 T_b = 18;
 A_b = 0.6;
@@ -79,49 +79,59 @@ for day = 1:n%n5
         p4t(i,day) = length(p4);
         p5t(i,day) = length(p5);
     end
-    figure(day);
+    fig = figure(day);
     axes;
+
     set(gca,'color','k','xcolor','none','ycolor','none','zcolor','none','xtick',[],'ytick',[],'ztick',[],'xticklabel','','yticklabel','','zticklabel','')
     lim = [-88 88]; ticks = -90:30:90;
-    xlim([-90 90]); ylim([-90 90]); zlim(lim)
+%     xlim([-90 90]); ylim([-90 90]); zlim([lim])
+     xlim([-220 220]); ylim([-220 220]); zlim([-220 220])
     hold on
     surf(x,y,z,'edgecolor','none','CData',C_array)
     colormap(daisymap)
-    colorbar('Ticks',[-0.7,0,0.7],'TickLabels',{'Wasteland','White','Black'})
+%     colorbar('Ticks',[-0.7,0,0.7],'TickLabels',{'Wasteland','White','Black'})
     hold off
-    axis square;
+%     axis square;
+axis vis3d;
+    view(0,0)
+    print(fig,'0','-dpng')
     view(90,0)
-    
-    figure(day+n);
-
-    axes
-    xtick = 0:60:360;
-    xlim([0 100]); ylim(lim);
-    xticks(linspace(0,100,7));yticks(ticks);
-    set(gca,'xticklabel',xtick);
-    xlabel('Lon'); ylabel('Lat');
-    hold on
-    surf(xs,ys,zs,'edgecolor','none','CData',C_array)
-    colormap(daisymap)
-    colorbar('Ticks',[-0.7,0,0.7],'TickLabels',{'Wasteland','White','Black'})
-    hold off
-
-    figure(day+2*n);
-    axes;
-    set(gca,'color','k','xcolor','none','ycolor','none','zcolor','none','xtick',[],'ytick',[],'ztick',[],'xticklabel','','yticklabel','','zticklabel','')
-    lim = [-88 88]; ticks = -90:30:90;
-    xlim([-90 90]); ylim([-90 90]); zlim(lim)
-    hold on
-    T_array = nan(89,100);
-    for nnn = 1:100
-    T_array(:,nnn) = Tsa(:,day);
-    end
-    surf(x,y,z,'edgecolor','none','CData',T_array)
-    colormap(jet)
-    colorbar;
-    hold off
-    axis square;
-    view(90,0)
+    print(fig,'90','-dpng')
+    view(180,0)
+    print(fig,'180','-dpng')
+    view(270,0)
+    print(fig,'270','-dpng')
+ %%   
+%     figure(day+n);
+% 
+%     axes
+%     xtick = 0:60:360;
+%     xlim([0 100]); ylim(lim);
+%     xticks(linspace(0,100,7));yticks(ticks);
+%     set(gca,'xticklabel',xtick);
+%     xlabel('Lon'); ylabel('Lat');
+%     hold on
+%     surf(xs,ys,zs,'edgecolor','none','CData',C_array)
+%     colormap(daisymap)
+%     colorbar('Ticks',[-0.7,0,0.7],'TickLabels',{'Wasteland','White','Black'})
+%     hold off
+%%
+%     figure(day+2*n);
+%     axes;
+%     set(gca,'color','k','xcolor','none','ycolor','none','zcolor','none','xtick',[],'ytick',[],'ztick',[],'xticklabel','','yticklabel','','zticklabel','')
+%     lim = [-88 88]; ticks = -90:30:90;
+%     xlim([-90 90]); ylim([-90 90]); zlim(lim)
+%     hold on
+%     T_array = nan(89,100);
+%     for nnn = 1:100
+%     T_array(:,nnn) = Tsa(:,day);
+%     end
+%     surf(x,y,z,'edgecolor','none','CData',T_array)
+%     colormap(jet)
+%     colorbar;
+%     hold off
+%     axis square;
+%     view(90,0)
     
 end
 toc
