@@ -59,7 +59,7 @@ end
 % while(1)
 %     for i=1:1:50
          imshow(C{1});
-         print('3D220','-dpng')
+         print('3D260','-dpng')
 %         pause(0.1);
 %     end
 % end

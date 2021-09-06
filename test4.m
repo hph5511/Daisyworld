@@ -1,7 +1,7 @@
 clc;close all;clear;
 
 jd = 80;
-n = 1;
+n = 5;
 S0 = 6000;
 T_b = 18;
 A_b = 0.6;
@@ -57,7 +57,6 @@ yy = linspace(-88,88,89);
 [xs,ys] = meshgrid(xx,yy);
 zs = zeros(89,100);
 %%
-tic
 for day = 1:n%n5
     
     for i = 1:length(theta)
@@ -85,22 +84,22 @@ for day = 1:n%n5
     set(gca,'color','k','xcolor','none','ycolor','none','zcolor','none','xtick',[],'ytick',[],'ztick',[],'xticklabel','','yticklabel','','zticklabel','')
     lim = [-88 88]; ticks = -90:30:90;
 %     xlim([-90 90]); ylim([-90 90]); zlim([lim])
-     xlim([-220 220]); ylim([-220 220]); zlim([-220 220])
+     xlim([-260 260]); ylim([-260 260]); zlim([-260 260])
     hold on
-    surf(x,y,z,'edgecolor','none','CData',C_array)
+    picture(day)=surf(x,y,z,'edgecolor','none','CData',C_array);
     colormap(daisymap)
 %     colorbar('Ticks',[-0.7,0,0.7],'TickLabels',{'Wasteland','White','Black'})
     hold off
-%     axis square;
-axis vis3d;
+    axis square;
+% axis vis3d;
     view(0,0)
     print(fig,'0','-dpng')
-    view(90,0)
-    print(fig,'90','-dpng')
-    view(180,0)
-    print(fig,'180','-dpng')
-    view(270,0)
-    print(fig,'270','-dpng')
+%     view(90,0)
+%     print(fig,'90','-dpng')
+%     view(180,0)
+%     print(fig,'180','-dpng')
+%     view(270,0)
+%     print(fig,'270','-dpng')
  %%   
 %     figure(day+n);
 % 
@@ -134,7 +133,6 @@ axis vis3d;
 %     view(90,0)
     
 end
-toc
 
 function [iii,w_a,b_a,s_a,Ts,Ta,A,n] = daisy(n,S0,T_b,A_b,T_w,A_w,Dr,dt,asw,alw,abb,abw,abs)
 b_a(1) = A_b;
