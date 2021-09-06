@@ -231,6 +231,8 @@ else
             plot(iii,avg_sa(1:n),'color',sc);
             hold off
             axis([handles.graphic(1) n 0 1])
+            xlabel('days')
+            ylabel('ratio')
             legend('white','black','wasteland')
             title('Flower area percentage')
             
@@ -251,8 +253,11 @@ else
              set(handles.axes4,'visible','on')
              plot(Tsa(:,n)-273.15,lat)
              axis([min(Tsa(:,n)-273.15) max(Tsa(:,n)-253.15) -90 90])
+             
+             xlabel('Temp( ^{o}C)')
+             ylabel('Lat')
              legend('surface')
-             title('surface/Atmos temperature( ^{o}C)')             
+             title('surface/Atmos temperature( ^{o}C)')     
         case 1
             
         for i = 1:length(lat)
@@ -311,6 +316,8 @@ else
         plot(iii,avg_sa(1:n),'color',sc);
         hold off
         axis([handles.graphic(1) n 0 1])
+        xlabel('days')
+        ylabel('ratio')
         legend('white','black','wasteland')
         title('Flower area percentage')
         
@@ -334,6 +341,8 @@ else
         plot(Taa(:,n)-273.15,lat)
         hold off
         axis([min(Taa(:,n)-273.15) max(Tsa(:,n)-253.15) -90 90])
+        xlabel('Temp( ^{o}C)')
+        ylabel('Lat')
         legend('surface','atmosphere')
         title('surface/Atmos temperature( ^{o}C)')
 %         disp(iii)
